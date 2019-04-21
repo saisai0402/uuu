@@ -202,24 +202,24 @@
   }
   
 
-  /* Twitter Feed
-  -------------------------------------------------------*/
-  if($('#tweets').length) {
-    function initTwitter() {
-      var config1 = {
-        "id": '594366594521804800',
-        "domId": 'tweets',
-        "showUser": false,
-        "showInteraction": false,
-        "showPermalinks": false,
-        "showTime": true,
-        "maxTweets": 2,
-        "enableLinks": true
-      };
-      twitterFetcher.fetch(config1);
-    }
-    initTwitter();
-  }
+  // /* Twitter Feed
+  // -------------------------------------------------------*/
+  // if($('#tweets').length) {
+  //   function initTwitter() {
+  //     var config1 = {
+  //       "id": '594366594521804800',
+  //       "domId": 'tweets',
+  //       "showUser": false,
+  //       "showInteraction": false,
+  //       "showPermalinks": false,
+  //       "showTime": true,
+  //       "maxTweets": 2,
+  //       "enableLinks": true
+  //     };
+  //     twitterFetcher.fetch(config1);
+  //   }
+  //   initTwitter();
+  // }
 
 
   /* YouTube Video Playlist
@@ -344,7 +344,7 @@
       loop: true,
       nav: false,
       dots: false,
-      lazyLoad: true,
+      twitterFetcheryLoad: true,
       navSpeed: 500,
       navText: ['<i class="ui-arrow-left">','<i class="ui-arrow-right">']
     });
