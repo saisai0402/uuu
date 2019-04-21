@@ -15,12 +15,13 @@ class InfoView(View):
                                                   category=content.category.id).first()
         next_content = Article.objects.filter(created_time__lt=content.created_time,
                                               category=content.category.id).last()
-        # 取出所有标签
-
+        # 取出文章对应标签所有标签
+        tags = content.tags.all()
         relate_articles = Article.objects.all().order_by('?')[0:3]
         return render(request, 'info.html', {
             'content': content,
             'previous_content': previous_content,
             'next_content': next_content,
             'relate_articles': relate_articles,
+            'tags': tags
         })

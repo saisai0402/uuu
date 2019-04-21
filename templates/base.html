@@ -32,17 +32,19 @@
     <script src="{% static 'js/lazysizes.min.js' %}"></script>
 
 </head>
-<body class="style-games">
+{% block body_start %}
+{% endblock %}
 
-{#<!-- Preloader -->#}
-{#<div class="loader-mask">#}
-{#    <div class="loader">#}
-{#        <div></div>#}
-{#    </div>#}
-{#</div>#}
+<!-- 延迟加载 -->
+<div class="loader-mask">
+    <div class="loader">
+        <div></div>
+    </div>
+</div>
 
 <!-- Bg Overlay -->
 <div class="content-overlay"></div>
+
 
 <header class="sidenav" id="sidenav">
     <!-- 侧边导航 -->
@@ -94,7 +96,7 @@
                             <li><a href="single-post.html" class="sidenav__menu-url">Style 1</a></li>
                             <li><a href="single-post-politics.html" class="sidenav__menu-url">Style 2</a></li>
                             <li><a href="single-post-fashion.html" class="sidenav__menu-url">Style 3</a></li>
-                            <li><a href="single-post-games.html" class="sidenav__menu-url">Style 4</a></li>
+                            <li><a href="info.html" class="sidenav__menu-url">Style 4</a></li>
                             <li><a href="single-post-videos.html" class="sidenav__menu-url">Style 5</a></li>
                             <li><a href="single-post-music.html" class="sidenav__menu-url">Style 6</a></li>
                         </ul>
@@ -123,21 +125,21 @@
     </nav>
 
     <div class="socials sidenav__socials">
-{#        <a class="social social-facebook" href="#" target="_blank" aria-label="facebook">#}
-{#            <i class="ui-facebook"></i>#}
-{#        </a>#}
-{#        <a class="social social-twitter" href="#" target="_blank" aria-label="twitter">#}
-{#            <i class="ui-twitter"></i>#}
-{#        </a>#}
-{#        <a class="social social-google-plus" href="#" target="_blank" aria-label="google">#}
-{#            <i class="ui-google"></i>#}
-{#        </a>#}
-{#        <a class="social social-youtube" href="#" target="_blank" aria-label="youtube">#}
-{#            <i class="ui-youtube"></i>#}
-{#        </a>#}
-{#        <a class="social social-instagram" href="#" target="_blank" aria-label="instagram">#}
-{#            <i class="ui-instagram"></i>#}
-{#        </a>#}
+        {#        <a class="social social-facebook" href="#" target="_blank" aria-label="facebook">#}
+        {#            <i class="ui-facebook"></i>#}
+        {#        </a>#}
+        {#        <a class="social social-twitter" href="#" target="_blank" aria-label="twitter">#}
+        {#            <i class="ui-twitter"></i>#}
+        {#        </a>#}
+        {#        <a class="social social-google-plus" href="#" target="_blank" aria-label="google">#}
+        {#            <i class="ui-google"></i>#}
+        {#        </a>#}
+        {#        <a class="social social-youtube" href="#" target="_blank" aria-label="youtube">#}
+        {#            <i class="ui-youtube"></i>#}
+        {#        </a>#}
+        {#        <a class="social social-instagram" href="#" target="_blank" aria-label="instagram">#}
+        {#            <i class="ui-instagram"></i>#}
+        {#        </a>#}
     </div>
 </header> <!-- 侧边导航结束 -->
 
@@ -223,7 +225,7 @@
                                                 <div class="col nav__megamenu-item">
                                                     <article class="entry">
                                                         <div class="entry__img-holder">
-                                                            <a href="single-post-games.html">
+                                                            <a href="info.html">
                                                                 <img src="img/content/grid/grid_post_1.jpg" alt=""
                                                                      class="entry__img">
                                                             </a>
@@ -233,7 +235,7 @@
 
                                                         <div class="entry__body">
                                                             <h2 class="entry__title">
-                                                                <a href="single-post-games.html">Follow These Smartphone
+                                                                <a href="info.html">Follow These Smartphone
                                                                     Habits of Successful Entrepreneurs</a>
                                                             </h2>
                                                         </div>
@@ -243,7 +245,7 @@
                                                 <div class="col nav__megamenu-item">
                                                     <article class="entry">
                                                         <div class="entry__img-holder">
-                                                            <a href="single-post-games.html">
+                                                            <a href="info.html">
                                                                 <img src="img/content/grid/grid_post_2.jpg" alt=""
                                                                      class="entry__img">
                                                             </a>
@@ -253,8 +255,9 @@
 
                                                         <div class="entry__body">
                                                             <h2 class="entry__title">
-                                                                <a href="single-post-games.html">3 Things You Can Do to
-                                                                    Get Your Customers Talking About Your Business</a>
+                                                                <a href="info.html">3 Things You Can Do to
+                                                                    Get Your Customers Talking About Your
+                                                                    Business</a>
                                                             </h2>
                                                         </div>
                                                     </article>
@@ -263,7 +266,7 @@
                                                 <div class="col nav__megamenu-item">
                                                     <article class="entry">
                                                         <div class="entry__img-holder">
-                                                            <a href="single-post-games.html">
+                                                            <a href="info.html">
                                                                 <img src="img/content/grid/grid_post_3.jpg" alt=""
                                                                      class="entry__img">
                                                             </a>
@@ -273,7 +276,7 @@
 
                                                         <div class="entry__body">
                                                             <h2 class="entry__title">
-                                                                <a href="single-post-games.html">Lose These 12 Bad
+                                                                <a href="info.html">Lose These 12 Bad
                                                                     Habits If You're Serious About Becoming a
                                                                     Millionaire</a>
                                                             </h2>
@@ -284,7 +287,7 @@
                                                 <div class="col nav__megamenu-item">
                                                     <article class="entry">
                                                         <div class="entry__img-holder">
-                                                            <a href="single-post-games.html">
+                                                            <a href="info.html">
                                                                 <img src="img/content/grid/grid_post_4.jpg" alt=""
                                                                      class="entry__img">
                                                             </a>
@@ -294,7 +297,7 @@
 
                                                         <div class="entry__body">
                                                             <h2 class="entry__title">
-                                                                <a href="single-post-games.html">10 Horrible Habits
+                                                                <a href="info.html">10 Horrible Habits
                                                                     You're Doing Right Now That Are Draining Your
                                                                     Energy</a>
                                                             </h2>
@@ -329,7 +332,7 @@
                                             <li><a href="single-post.html">Style 1</a></li>
                                             <li><a href="single-post-politics.html">Style 2</a></li>
                                             <li><a href="single-post-fashion.html">Style 3</a></li>
-                                            <li><a href="single-post-games.html">Style 4</a></li>
+                                            <li><a href="info.html">Style 4</a></li>
                                             <li><a href="single-post-videos.html">Style 5</a></li>
                                             <li><a href="single-post-music.html">Style 6</a></li>
                                         </ul>
@@ -370,291 +373,141 @@
 
         </div>
     </header> <!-- 导航条结束 -->
-    <!-- 主幻灯片 -->
-    <section class="hero-slider">
-        <div id="owl-hero-slider" class="owl-carousel owl-theme">
 
-            <div class="hero-slider__item">
-                <article class="entry thumb">
-                    <div class="entry__img-holder thumb__img-holder"
-                         style="background-image: url('{% static 'img/content/hero/hero_post_7.jpg' %}');">
-                        <div class="bottom-gradient"></div>
-                        <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title">
-                                <a href="single-post-games.html">据说今年的战场是在第二次世界大战期间建立的</a>
-                            </h2>
-                            <ul class="entry__meta">
-                                <li class="entry__meta-author">
-                                    <span>by</span>
-                                    <a href="#">DeoThemes</a>
-                                </li>
-                                <li class="entry__meta-date">
-                                    Jan 21, 2018
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="single-post-games.html" class="thumb-url"></a>
+</main>
+
+{% block custom_bread %}
+    {#面包屑#}
+{% endblock %}
+
+{% block content %}
+    {#正文#}
+{% endblock %}
+
+<!-- Footer -->
+<footer class="footer footer--dark">
+    <div class="container">
+        <div class="footer__widgets">
+            <div class="footer__widgets-top">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-md-4">
+                        <a href="index.html">
+                            <img src="{% static 'img/logo_games_white.png' %}"
+                                 srcset="{% static 'img/logo_games_white.png' %} 1x, {% static 'img/logo_games_white@2x.png' %} 2x"
+                                 class="logo__img" alt="">
+                        </a>
                     </div>
-                </article>
-            </div>
 
-            <div class="hero-slider__item">
-                <article class="entry thumb">
-                    <div class="entry__img-holder thumb__img-holder"
-                         style="background-image: url('{% static 'img/content/hero/hero_post_8.jpg' %}');">
-                        <div class="bottom-gradient"></div>
-                        <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title">
-                                <a href="single-post-games.html">《巫师3：狂野狩猎》用定时器戏弄公告</a>
-                            </h2>
-                            <ul class="entry__meta">
-                                <li class="entry__meta-author">
-                                    <span>来自</span>
-                                    <a href="#">Saigege</a>
-                                </li>
-                                <li class="entry__meta-date">
-                                    {{ local_time }}
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="single-post-games.html" class="thumb-url"></a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="hero-slider__item">
-                <article class="entry thumb">
-                    <div class="entry__img-holder thumb__img-holder"
-                         style="background-image: url('{% static 'img/content/hero/hero_post_9.jpg' %}');">
-                        <div class="bottom-gradient"></div>
-                        <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title">
-                                <a href="single-post-games.html">当维吉尔不在他的洞穴里时，在“灼热的海洋”中该怎么办？”</a>
-                            </h2>
-                            <ul class="entry__meta">
-                                <li class="entry__meta-author">
-                                    <span>来自</span>
-                                    <a href="#">Saigege</a>
-                                </li>
-                                <li class="entry__meta-date">
-                                    {{ local_time }}
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="single-post-games.html" class="thumb-url"></a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="hero-slider__item">
-                <article class="entry thumb">
-                    <div class="entry__img-holder thumb__img-holder"
-                         style="background-image: url('{% static 'img/content/hero/hero_post_10.jpg' %}');">
-                        <div class="bottom-gradient"></div>
-                        <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title">
-                                <a href="single-post-games.html">享受在没有规则的虚拟世界中创造和控制人的能力</a>
-                            </h2>
-                            <ul class="entry__meta">
-                                <li class="entry__meta-author">
-                                    <span>来自</span>
-                                    <a href="#">Saigege</a>
-                                </li>
-                                <li class="entry__meta-date">
-                                    {{ local_time }}
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="single-post-games.html" class="thumb-url"></a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="hero-slider__item">
-                <article class="entry thumb">
-                    <div class="entry__img-holder thumb__img-holder"
-                         style="background-image: url('{% static 'img/content/hero/hero_post_11.jpg' %}');">
-                        <div class="bottom-gradient"></div>
-                        <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title">
-                                <a href="single-post-games.html">软件盗版与珍稀盗贼之海：E3预览</a>
-                            </h2>
-                            <ul class="entry__meta">
-                                <li class="entry__meta-author">
-                                    <span>来自</span>
-                                    <a href="#">Saigege</a>
-                                </li>
-                                <li class="entry__meta-date">
-                                    {{ local_time }}
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="single-post-games.html" class="thumb-url"></a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="hero-slider__item">
-                <article class="entry thumb">
-                    <div class="entry__img-holder thumb__img-holder"
-                         style="background-image: url('{% static 'img/content/hero/hero_post_12.jpg' %}');">
-                        <div class="bottom-gradient"></div>
-                        <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title">
-                                <a href="single-post-games.html">为什么地平线零黎明是我今年的比赛收到了令人惊讶的积极评价</a>
-                            </h2>
-                            <ul class="entry__meta">
-                                <li class="entry__meta-author">
-                                    <span>来自</span>
-                                    <a href="#">Saigege</a>
-                                </li>
-                                <li class="entry__meta-date">
-                                    {{ local_time }}
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="single-post-games.html" class="thumb-url"></a>
-                    </div>
-                </article>
-            </div>
-
-        </div>
-    </section> <!-- 主幻灯片 -->
-    {% block custom_bread %}
-        {#面包屑#}
-    {% endblock %}
-
-    {% block content %}
-        {#正文#}
-    {% endblock %}
-
-
-    <!-- Footer -->
-    <footer class="footer footer--dark">
-        <div class="container">
-            <div class="footer__widgets">
-                <div class="footer__widgets-top">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-md-4">
-                            <a href="index.html">
-                                <img src="{% static 'img/logo_games_white.png' %}"
-                                     srcset="{% static 'img/logo_games_white.png' %} 1x, {% static 'img/logo_games_white@2x.png' %} 2x"
-                                     class="logo__img" alt="">
-                            </a>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="socials socials--large socials--nobase justify-content-md-end">
-                                <a href="#" class="social social-facebook" aria-label="facebook"><i
-                                        class="ui-facebook"></i></a>
-                                <a href="#" class="social social-twitter" aria-label="twitter"><i
-                                        class="ui-twitter"></i></a>
-                                <a href="#" class="social social-google-plus" aria-label="google+"><i
-                                        class="ui-google"></i></a>
-                                <a href="#" class="social social-youtube" aria-label="youtube"><i
-                                        class="ui-youtube"></i></a>
-                                <a href="#" class="social social-instagram" aria-label="instagram"><i
-                                        class="ui-instagram"></i></a>
-                            </div>
+                    <div class="col-md-6">
+                        <div class="socials socials--large socials--nobase justify-content-md-end">
+                            <a href="#" class="social social-facebook" aria-label="facebook"><i
+                                    class="ui-facebook"></i></a>
+                            <a href="#" class="social social-twitter" aria-label="twitter"><i
+                                    class="ui-twitter"></i></a>
+                            <a href="#" class="social social-google-plus" aria-label="google+"><i
+                                    class="ui-google"></i></a>
+                            <a href="#" class="social social-youtube" aria-label="youtube"><i
+                                    class="ui-youtube"></i></a>
+                            <a href="#" class="social social-instagram" aria-label="instagram"><i
+                                    class="ui-instagram"></i></a>
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-
-                    <div class="col-lg-2 col-md-6">
-                        <aside class="widget widget_nav_menu">
-                            <h4 class="widget-title">精彩故事</h4>
-                            <ul>
-                                <li><a href="single-post-games.html">为什么地平线零黎明</a></li>
-                                <li><a href="single-post-games.html">超人</a></li>
-                                <li><a href="single-post-games.html">最好的任天堂游戏</a></li>
-                                <li><a href="single-post-games.html">王国之心3</a></li>
-                                <li><a href="single-post-games.html">七龙珠</a></li>
-                                <li><a href="single-post-games.html">战争之神</a></li>
-                            </ul>
-                        </aside>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <aside class="widget widget-twitter">
-                            <h4 class="widget-title">最佳推荐</h4>
-                            <div class="tweets-container">
-                                <div id="tweets"></div>
-                            </div>
-                        </aside>
-                    </div>
-
-                    <div class="col-lg-2 col-md-6">
-                        <aside class="widget widget_nav_menu">
-                            <h4 class="widget-title">主要链接</h4>
-                            <ul>
-                                <li><a href="about.html">关于</a></li>
-                                <li><a href="contact.html">联系</a></li>
-                                <li><a href="single-post-games.html">项目</a></li>
-                                <li><a href="categories.html">广告</a></li>
-                            </ul>
-                        </aside>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <aside class="widget widget_tag_cloud">
-                            <h4 class="widget-title">热门标签</h4>
-                            <div class="tagcloud">
-                                <a href="#">动作</a>
-                                <a href="#">冒险</a>
-                                <a href="#">台北</a>
-                                <a href="#">北海道</a>
-                                <a href="#">香港</a>
-                                <a href="#">爱情海</a>
-                                <a href="#">北海公园</a>
-                                <a href="#">巴厘岛</a>
-                                <a href="#">加利福尼亚</a>
-                                <a href="#">澳大利亚</a>
-                                <a href="#">新加坡</a>
-                                <a href="#">马来西亚</a>
-                            </div>
-                        </aside>
-                    </div>
-
-                </div> <!-- end row -->
-            </div> <!-- end footer widgets -->
-        </div> <!-- end container -->
-
-        <div class="footer__bottom footer__bottom--dark">
-            <div class="container text-center">
-                <ul class="footer__nav-menu footer__nav-menu--1">
-                    <li><a href="about.html">关于</a></li>
-                    <li><a href="contact.html">新闻</a></li>
-                    <li><a href="categories.html">广告</a></li>
-                    <li><a href="shortcodes.html">旅游</a></li>
-                    <li><a href="shortcodes.html">联系</a></li>
-                </ul>
-                <p class="copyright">
-                    © 2019 Uuu | 由<a href="http://www.bgushi.com/">Saigege</a>制作
-                </p>
             </div>
-        </div> <!-- end footer bottom -->
-    </footer> <!-- end footer -->
 
-    <div id="back-to-top">
-        <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
-    </div>
+            <div class="row">
 
-    {% block custom_js %}
+                <div class="col-lg-2 col-md-6">
+                    <aside class="widget widget_nav_menu">
+                        <h4 class="widget-title">精彩故事</h4>
+                        <ul>
+                            <li><a href="info.html">为什么地平线零黎明</a></li>
+                            <li><a href="info.html">超人</a></li>
+                            <li><a href="info.html">最好的任天堂游戏</a></li>
+                            <li><a href="info.html">王国之心3</a></li>
+                            <li><a href="info.html">七龙珠</a></li>
+                            <li><a href="info.html">战争之神</a></li>
+                        </ul>
+                    </aside>
+                </div>
 
-    {% endblock %}
-    <!-- JS
-    ============================================ -->
+                <div class="col-lg-4 col-md-6">
+                    <aside class="widget widget-twitter">
+                        <h4 class="widget-title">最佳推荐</h4>
+                        <div class="tweets-container">
+                            <div id="tweets"></div>
+                        </div>
+                    </aside>
+                </div>
 
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/easing.min.js' %}"></script>
-    <script src="{% static 'js/owl-carousel.min.js' %}"></script>
-    <script src="{% static 'js/flickity.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/twitterFetcher_min.js' %}"></script>
-    <script src="{% static 'js/jquery.newsTicker.min.js' %}"></script>
-    <script src="{% static 'js/modernizr.min.js' %}"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
-</body>
+                <div class="col-lg-2 col-md-6">
+                    <aside class="widget widget_nav_menu">
+                        <h4 class="widget-title">主要链接</h4>
+                        <ul>
+                            <li><a href="about.html">关于</a></li>
+                            <li><a href="contact.html">联系</a></li>
+                            <li><a href="info.html">项目</a></li>
+                            <li><a href="categories.html">广告</a></li>
+                        </ul>
+                    </aside>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <aside class="widget widget_tag_cloud">
+                        <h4 class="widget-title">热门标签</h4>
+                        <div class="tagcloud">
+                            <a href="#">动作</a>
+                            <a href="#">冒险</a>
+                            <a href="#">台北</a>
+                            <a href="#">北海道</a>
+                            <a href="#">香港</a>
+                            <a href="#">爱情海</a>
+                            <a href="#">北海公园</a>
+                            <a href="#">巴厘岛</a>
+                            <a href="#">加利福尼亚</a>
+                            <a href="#">澳大利亚</a>
+                            <a href="#">新加坡</a>
+                            <a href="#">马来西亚</a>
+                        </div>
+                    </aside>
+                </div>
+
+            </div> <!-- end row -->
+        </div> <!-- end footer widgets -->
+    </div> <!-- end container -->
+
+    <div class="footer__bottom footer__bottom--dark">
+        <div class="container text-center">
+            <ul class="footer__nav-menu footer__nav-menu--1">
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html">新闻</a></li>
+                <li><a href="categories.html">广告</a></li>
+                <li><a href="shortcodes.html">旅游</a></li>
+                <li><a href="shortcodes.html">联系</a></li>
+            </ul>
+            <p class="copyright">
+                © 2019 Uuu | 由<a href="http://www.bgushi.com/">Saigege</a>制作
+            </p>
+        </div>
+    </div> <!-- end footer bottom -->
+</footer> <!-- end footer -->
+
+<div id="back-to-top">
+    <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
+</div>
+
+{% block custom_js %}
+{% endblock %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/easing.min.js' %}"></script>
+<script src="{% static 'js/owl-carousel.min.js' %}"></script>
+<script src="{% static 'js/flickity.pkgd.min.js' %}"></script>
+<script src="{% static 'js/twitterFetcher_min.js' %}"></script>
+<script src="{% static 'js/jquery.newsTicker.min.js' %}"></script>
+<script src="{% static 'js/modernizr.min.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+
+{% block body_end %}
+{% endblock %}
 </html>

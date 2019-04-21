@@ -1,0 +1,305 @@
+﻿{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <!-- Post Header Section Start -->
+    <div class="post-header-section section mt-30 mb-30">
+        <div class="container">
+            <div class="row row-1">
+
+                <!-- Page Banner Start -->
+                <div class="col-12">
+                    <div class="post-header"
+                         style="background-image: url({% static 'img\bg\page-banner-politic.jpg' %})">
+
+                        <!-- Title -->
+                        <h3 class="title">{{ content.title }}</h3>
+                        <!-- Meta -->
+                        <div class="meta fix">
+                            <a href="#" class="meta-item category fashion">{{ content.category }}</a>
+                            <span class="meta-item author">
+                                <span>作者：{{ content.user.nick_name }}</span>
+                            </span>
+                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ content.created_time }}</span>
+                            <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
+                            <span class="meta-item view"><i class="fa fa-eye"></i>{{ content.views }}</span>
+                        </div>
+
+                    </div>
+                </div><!-- Post Header Section End -->
+
+            </div>
+        </div>
+    </div><!-- Page Banner Section End -->
+
+    <!-- Post Section Start -->
+    <div class="post-section section">
+        <div class="container">
+
+            <!-- Feature Post Row Start -->
+            <div class="row">
+
+                <div class="col-lg-8 col-12 mb-50">
+
+                    <!-- Post Block Wrapper Start -->
+                    <div class="post-block-wrapper mb-50">
+
+                        <!-- Post Block Body Start -->
+                        <div class="body">
+                            <div class="row">
+
+                                <div class="col-12">
+
+                                    <!-- Single Post Start -->
+                                    <div class="single-post">
+                                        <div class="post-wrap">
+
+                                            <!-- Content -->
+                                            <div class="content">
+                                                {{ content.body|safe }}
+                                            </div>
+
+                                            <div class="tags-social float-left">
+
+                                                <div class="tags float-left">
+                                                    <i class="fa fa-tags"></i>
+                                                    {% for tag in content.tags.all %}
+                                                        <a href="#">{{ tag }}</a>
+                                                    {% endfor %}
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div><!-- Single Post End -->
+
+                                </div>
+
+                            </div>
+                        </div><!-- Post Block Body End -->
+
+                    </div><!-- Post Block Wrapper End -->
+
+                    <!-- Previous & Next Post Start -->
+                    <div class="post-nav mb-50">
+                        {% if next_content %}
+                            <a href="{% url 'info:info' next_content.id %}"
+                               class="prev-post"><span>上一篇</span>{{ next_content }}</a>
+                        {% else %}
+                            <a class="prev-post"><span>上一篇</span>真的没了</a>
+                        {% endif %}
+                        {% if previous_content %}
+                            <a href="{% url 'info:info' previous_content.id %}"
+                               class="next-post"><span>下一篇</span>{{ previous_content }}</a>
+                        {% else %}
+                            <a class="next-post"><span>下一篇</span>真的没了</a>
+                        {% endif %}
+                    </div><!-- Previous & Next Post End -->
+
+                    <!-- Post Block Wrapper Start -->
+                    <div class="post-block-wrapper mb-50">
+
+                        <!-- Post Block Head Start -->
+                        <div class="head">
+
+                            <!-- Title -->
+                            <h4 class="title">你可能感兴趣的！</h4>
+
+                        </div><!-- Post Block Head End -->
+
+                        <!-- Post Block Body Start -->
+                        <div class="body">
+
+                            <div class="two-column-post-carousel column-post-carousel post-block-carousel row">
+
+                                {% for relate_article in relate_articles %}
+                                    <div class="col-md-6 col-12">
+
+                                        <!-- Overlay Post Start -->
+
+                                        <div class="post post-overlay hero-post">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <div class="image"><img src="{{ MEDIA_URL }}{{ relate_article.img }}"
+                                                                        alt="post"></div>
+
+                                                <!-- Category -->
+                                                <a href="{% url 'info:info' relate_article.id %}"
+                                                   class="category gadgets">{{ relate_article.category }}</a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a
+                                                            href="{% url 'info:info' relate_article.id %}">{{ relate_article.title }}</a>
+                                                    </h4>
+
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i
+                                                                class="fa fa-clock-o"></i>{{ relate_article.modified_time }}</span>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Overlay Post End -->
+
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+
+                    </div><!-- Post Block Body End -->
+
+                </div><!-- Post Block Wrapper End -->
+
+                <!-- Post Block Wrapper Start -->
+                <div class="post-block-wrapper">
+
+                    <!-- Post Block Head Start -->
+                    <div class="head">
+
+                        <!-- Title -->
+                        <h4 class="title">留言</h4>
+
+                    </div><!-- Post Block Head End -->
+
+                    <!-- Post Block Body Start -->
+                    <div class="body">
+
+                        <div class="post-comment-form">
+                            <form action="#" class="row">
+                                <div class="col-12 mb-20">
+                                    <textarea id="message"></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <input type="submit" value="点击评论">
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div><!-- Post Block Body End -->
+
+                </div><!-- Post Block Wrapper End -->
+
+            </div>
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4 col-12 mb-50">
+                <div class="row">
+
+                    <!-- Single Sidebar -->
+                    <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                        <!-- Sidebar Block Wrapper -->
+                        <div class="sidebar-block-wrapper">
+
+                            <!-- Sidebar Block Head Start -->
+                            <div class="head feature-head">
+
+                                <!-- Title -->
+                                <h4 class="title">广告1</h4>
+
+                            </div><!-- Sidebar Block Head End -->
+
+                            <!-- Sidebar Block Body Start -->
+                            <div class="body">
+
+                                <div class="sidebar-social-follow">
+                                    <div>
+                                        <a href="#" class="facebook">
+                                            <i class="fa fa-facebook"></i>
+                                            <h3>40,583</h3>
+                                            <span>Fans</span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="google-plus">
+                                            <i class="fa fa-google-plus"></i>
+                                            <h3>36,857</h3>
+                                            <span>Followers</span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="twitter">
+                                            <i class="fa fa-twitter"></i>
+                                            <h3>50,883</h3>
+                                            <span>Followers</span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="dribbble">
+                                            <i class="fa fa-dribbble"></i>
+                                            <h3>4,743</h3>
+                                            <span>Followers</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div><!-- Sidebar Block Body End -->
+
+                        </div>
+
+                    </div>
+
+                    <!-- Single Sidebar -->
+                    <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                        <!-- Sidebar Banner -->
+                        <a href="#" class="sidebar-banner">
+                            <img src="{% static 'img/banner/sidebar-banner-1.jpg' %}" alt="Sidebar Banner">
+                        </a>
+
+                    </div>
+
+                    <!-- Single Sidebar -->
+                    <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                        <!-- Sidebar Banner -->
+                        <a href="#" class="sidebar-banner">
+                            <img src="{% static 'img/banner/sidebar-banner-2.jpg' %}" alt="Sidebar Banner">
+                        </a>
+
+                    </div>
+                </div>
+            </div><!-- Sidebar End -->
+
+        </div><!-- Feature Post Row End -->
+
+    </div>
+    </div><!-- Post Section End -->
+
+    <!-- Instagram Section Start -->
+    <div class="instagram-section section">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- Full Width Instagram Carousel Start -->
+                <div class="fullwidth-instagram-carousel instagram-carousel col pl-0 pr-0">
+
+                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/1.jpg' %}"
+                                                            alt="instagram"></a>
+                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/2.jpg' %}"
+                                                            alt="instagram"></a>
+                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/3.jpg' %}"
+                                                            alt="instagram"></a>
+                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/4.jpg' %}"
+                                                            alt="instagram"></a>
+                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/5.jpg' %}"
+                                                            alt="instagram"></a>
+                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/6.jpg' %}"
+                                                            alt="instagram"></a>
+
+                </div><!-- Full Width Instagram Carousel End -->
+
+            </div>
+        </div>
+    </div><!-- Instagram Section End -->
+{% endblock %}

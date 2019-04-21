@@ -9,13 +9,169 @@
 
 {% block custom_css %}
 {% endblock %}
+{% block body_start %}
+    <body class="style-games">
+{% endblock %}
+
 
 {% block custom_bread %}
 {% endblock %}
 
 {% block content %}
+    <!-- 主幻灯片 -->
+    <section class="hero-slider">
+        <div id="owl-hero-slider" class="owl-carousel owl-theme">
 
+            <div class="hero-slider__item">
+                <article class="entry thumb">
+                    <div class="entry__img-holder thumb__img-holder"
+                         style="background-image: url('{% static 'img/content/hero/hero_post_7.jpg' %}');">
+                        <div class="bottom-gradient"></div>
+                        <div class="thumb-text-holder thumb-text-holder--2">
+                            <h2 class="thumb-entry-title">
+                                <a href="info.html">据说今年的战场是在第二次世界大战期间建立的</a>
+                            </h2>
+                            <ul class="entry__meta">
+                                <li class="entry__meta-author">
+                                    <span>by</span>
+                                    <a href="#">DeoThemes</a>
+                                </li>
+                                <li class="entry__meta-date">
+                                    Jan 21, 2018
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="info.html" class="thumb-url"></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="hero-slider__item">
+                <article class="entry thumb">
+                    <div class="entry__img-holder thumb__img-holder"
+                         style="background-image: url('{% static 'img/content/hero/hero_post_8.jpg' %}');">
+                        <div class="bottom-gradient"></div>
+                        <div class="thumb-text-holder thumb-text-holder--2">
+                            <h2 class="thumb-entry-title">
+                                <a href="info.html">《巫师3：狂野狩猎》用定时器戏弄公告</a>
+                            </h2>
+                            <ul class="entry__meta">
+                                <li class="entry__meta-author">
+                                    <span>来自</span>
+                                    <a href="#">Saigege</a>
+                                </li>
+                                <li class="entry__meta-date">
+                                    {{ local_time }}
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="info.html" class="thumb-url"></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="hero-slider__item">
+                <article class="entry thumb">
+                    <div class="entry__img-holder thumb__img-holder"
+                         style="background-image: url('{% static 'img/content/hero/hero_post_9.jpg' %}');">
+                        <div class="bottom-gradient"></div>
+                        <div class="thumb-text-holder thumb-text-holder--2">
+                            <h2 class="thumb-entry-title">
+                                <a href="info.html">当维吉尔不在他的洞穴里时，在“灼热的海洋”中该怎么办？”</a>
+                            </h2>
+                            <ul class="entry__meta">
+                                <li class="entry__meta-author">
+                                    <span>来自</span>
+                                    <a href="#">Saigege</a>
+                                </li>
+                                <li class="entry__meta-date">
+                                    {{ local_time }}
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="info.html" class="thumb-url"></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="hero-slider__item">
+                <article class="entry thumb">
+                    <div class="entry__img-holder thumb__img-holder"
+                         style="background-image: url('{% static 'img/content/hero/hero_post_10.jpg' %}');">
+                        <div class="bottom-gradient"></div>
+                        <div class="thumb-text-holder thumb-text-holder--2">
+                            <h2 class="thumb-entry-title">
+                                <a href="info.html">享受在没有规则的虚拟世界中创造和控制人的能力</a>
+                            </h2>
+                            <ul class="entry__meta">
+                                <li class="entry__meta-author">
+                                    <span>来自</span>
+                                    <a href="#">Saigege</a>
+                                </li>
+                                <li class="entry__meta-date">
+                                    {{ local_time }}
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="info.html" class="thumb-url"></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="hero-slider__item">
+                <article class="entry thumb">
+                    <div class="entry__img-holder thumb__img-holder"
+                         style="background-image: url('{% static 'img/content/hero/hero_post_11.jpg' %}');">
+                        <div class="bottom-gradient"></div>
+                        <div class="thumb-text-holder thumb-text-holder--2">
+                            <h2 class="thumb-entry-title">
+                                <a href="info.html">软件盗版与珍稀盗贼之海：E3预览</a>
+                            </h2>
+                            <ul class="entry__meta">
+                                <li class="entry__meta-author">
+                                    <span>来自</span>
+                                    <a href="#">Saigege</a>
+                                </li>
+                                <li class="entry__meta-date">
+                                    {{ local_time }}
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="info.html" class="thumb-url"></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="hero-slider__item">
+                <article class="entry thumb">
+                    <div class="entry__img-holder thumb__img-holder"
+                         style="background-image: url('{% static 'img/content/hero/hero_post_12.jpg' %}');">
+                        <div class="bottom-gradient"></div>
+                        <div class="thumb-text-holder thumb-text-holder--2">
+                            <h2 class="thumb-entry-title">
+                                <a href="info.html">为什么地平线零黎明是我今年的比赛收到了令人惊讶的积极评价</a>
+                            </h2>
+                            <ul class="entry__meta">
+                                <li class="entry__meta-author">
+                                    <span>来自</span>
+                                    <a href="#">Saigege</a>
+                                </li>
+                                <li class="entry__meta-date">
+                                    {{ local_time }}
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="info.html" class="thumb-url"></a>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </section> <!-- 主幻灯片 -->
 {% endblock %}
 {% block custom_js %}
+{% endblock %}
+{% block body_end %}
+    </body>
 {% endblock %}
 

@@ -3029,19 +3029,21 @@ figcaption {
 
 /* Entry Navigation
 /*-------------------------------------------------------*/
-.entry-navigation {
-	padding: 24px 0; }
+	.entry-navigation {
+		padding: 24px 0; }
 	.entry-navigation--left {
 		float: left;
 		width: 50%; }
-		.entry-navigation--left i {
-			margin-right: 7px; }
+	.entry-navigation--left i {
+		margin-right: 7px; }
 	.entry-navigation--right {
 		text-align: right;
 		float: right;
-		width: 50%; }
-		.entry-navigation--right i {
-			margin-left: 7px; }
+		width: 50%;
+
+	}
+	.entry-navigation--right i {
+		margin-left: 7px; }
 	.entry-navigation i {
 		font-size: 12px; }
 	.entry-navigation__label {
@@ -3054,8 +3056,12 @@ figcaption {
 		color: #171821;
 		font-weight: 700;
 		line-height: 1.4; }
-		.entry-navigation a:hover {
-			color: #2D95E3; }
+	.entry-navigation a:hover {
+		color: #2D95E3; }
+
+	.entry-navigation__link{
+		text-align: left;
+	}
 
 /* Comments
 /*-------------------------------------------------------*/

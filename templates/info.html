@@ -1,305 +1,570 @@
 ﻿{% extends 'base.html' %}
 {% load staticfiles %}
+{#标题#}
+{% block title %}{{ index_seo.title }}{% endblock %}
+{#关键词#}
+{% block keywords %}{{ index_seo.keywords }}{% endblock %}
+{#描述#}
+{% block description %}{{ index_seo.description }}{% endblock %}
+
+{% block custom_css %}
+{% endblock %}
+{% block body_start %}
+    <body class="style-games single-post bg-light">
+{% endblock %}
+
+
+{% block custom_bread %}
+    <div class="container">
+        <ul class="breadcrumbs">
+            <li class="breadcrumbs__item">
+                <a href="index.html" class="breadcrumbs__url">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="index.html" class="breadcrumbs__url">News</a>
+            </li>
+            <li class="breadcrumbs__item breadcrumbs__item--current">
+                World
+            </li>
+        </ul>
+    </div>
+{% endblock %}
 
 {% block content %}
-    <!-- Post Header Section Start -->
-    <div class="post-header-section section mt-30 mb-30">
-        <div class="container">
-            <div class="row row-1">
-
-                <!-- Page Banner Start -->
-                <div class="col-12">
-                    <div class="post-header"
-                         style="background-image: url({% static 'img\bg\page-banner-politic.jpg' %})">
-
-                        <!-- Title -->
-                        <h3 class="title">{{ content.title }}</h3>
-                        <!-- Meta -->
-                        <div class="meta fix">
-                            <a href="#" class="meta-item category fashion">{{ content.category }}</a>
-                            <span class="meta-item author">
-                                <span>作者：{{ content.user.nick_name }}</span>
-                            </span>
-                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ content.created_time }}</span>
-                            <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
-                            <span class="meta-item view"><i class="fa fa-eye"></i>{{ content.views }}</span>
-                        </div>
-
-                    </div>
-                </div><!-- Post Header Section End -->
-
-            </div>
+    <!-- Entry Image -->
+    <div class="thumb thumb--size-6">
+        <div class="entry__img-holder thumb__img-holder"
+             style="background-image: url('{% static 'img/content/single/single_post_games_featured_img.jpg' %}');">
         </div>
-    </div><!-- Page Banner Section End -->
-
-    <!-- Post Section Start -->
-    <div class="post-section section">
-        <div class="container">
-
-            <!-- Feature Post Row Start -->
-            <div class="row">
-
-                <div class="col-lg-8 col-12 mb-50">
-
-                    <!-- Post Block Wrapper Start -->
-                    <div class="post-block-wrapper mb-50">
-
-                        <!-- Post Block Body Start -->
-                        <div class="body">
-                            <div class="row">
-
-                                <div class="col-12">
-
-                                    <!-- Single Post Start -->
-                                    <div class="single-post">
-                                        <div class="post-wrap">
-
-                                            <!-- Content -->
-                                            <div class="content">
-                                                {{ content.body|safe }}
-                                            </div>
-
-                                            <div class="tags-social float-left">
-
-                                                <div class="tags float-left">
-                                                    <i class="fa fa-tags"></i>
-                                                    {% for tag in content.tags.all %}
-                                                        <a href="#">{{ tag }}</a>
-                                                    {% endfor %}
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div><!-- Single Post End -->
-
-                                </div>
-
-                            </div>
-                        </div><!-- Post Block Body End -->
-
-                    </div><!-- Post Block Wrapper End -->
-
-                    <!-- Previous & Next Post Start -->
-                    <div class="post-nav mb-50">
-                        {% if next_content %}
-                            <a href="{% url 'info:info' next_content.id %}"
-                               class="prev-post"><span>上一篇</span>{{ next_content }}</a>
-                        {% else %}
-                            <a class="prev-post"><span>上一篇</span>真的没了</a>
-                        {% endif %}
-                        {% if previous_content %}
-                            <a href="{% url 'info:info' previous_content.id %}"
-                               class="next-post"><span>下一篇</span>{{ previous_content }}</a>
-                        {% else %}
-                            <a class="next-post"><span>下一篇</span>真的没了</a>
-                        {% endif %}
-                    </div><!-- Previous & Next Post End -->
-
-                    <!-- Post Block Wrapper Start -->
-                    <div class="post-block-wrapper mb-50">
-
-                        <!-- Post Block Head Start -->
-                        <div class="head">
-
-                            <!-- Title -->
-                            <h4 class="title">你可能感兴趣的！</h4>
-
-                        </div><!-- Post Block Head End -->
-
-                        <!-- Post Block Body Start -->
-                        <div class="body">
-
-                            <div class="two-column-post-carousel column-post-carousel post-block-carousel row">
-
-                                {% for relate_article in relate_articles %}
-                                    <div class="col-md-6 col-12">
-
-                                        <!-- Overlay Post Start -->
-
-                                        <div class="post post-overlay hero-post">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <div class="image"><img src="{{ MEDIA_URL }}{{ relate_article.img }}"
-                                                                        alt="post"></div>
-
-                                                <!-- Category -->
-                                                <a href="{% url 'info:info' relate_article.id %}"
-                                                   class="category gadgets">{{ relate_article.category }}</a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a
-                                                            href="{% url 'info:info' relate_article.id %}">{{ relate_article.title }}</a>
-                                                    </h4>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i
-                                                                class="fa fa-clock-o"></i>{{ relate_article.modified_time }}</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Overlay Post End -->
-
-                                    </div>
-                                {% endfor %}
-
-                            </div>
-
-                        </div>
-
-                    </div><!-- Post Block Body End -->
-
-                </div><!-- Post Block Wrapper End -->
-
-                <!-- Post Block Wrapper Start -->
-                <div class="post-block-wrapper">
-
-                    <!-- Post Block Head Start -->
-                    <div class="head">
-
-                        <!-- Title -->
-                        <h4 class="title">留言</h4>
-
-                    </div><!-- Post Block Head End -->
-
-                    <!-- Post Block Body Start -->
-                    <div class="body">
-
-                        <div class="post-comment-form">
-                            <form action="#" class="row">
-                                <div class="col-12 mb-20">
-                                    <textarea id="message"></textarea>
-                                </div>
-
-                                <div class="col-12">
-                                    <input type="submit" value="点击评论">
-                                </div>
-
-                            </form>
-                        </div>
-
-                    </div><!-- Post Block Body End -->
-
-                </div><!-- Post Block Wrapper End -->
-
-            </div>
-
-            <!-- Sidebar Start -->
-            <div class="col-lg-4 col-12 mb-50">
-                <div class="row">
-
-                    <!-- Single Sidebar -->
-                    <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                        <!-- Sidebar Block Wrapper -->
-                        <div class="sidebar-block-wrapper">
-
-                            <!-- Sidebar Block Head Start -->
-                            <div class="head feature-head">
-
-                                <!-- Title -->
-                                <h4 class="title">广告1</h4>
-
-                            </div><!-- Sidebar Block Head End -->
-
-                            <!-- Sidebar Block Body Start -->
-                            <div class="body">
-
-                                <div class="sidebar-social-follow">
-                                    <div>
-                                        <a href="#" class="facebook">
-                                            <i class="fa fa-facebook"></i>
-                                            <h3>40,583</h3>
-                                            <span>Fans</span>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="#" class="google-plus">
-                                            <i class="fa fa-google-plus"></i>
-                                            <h3>36,857</h3>
-                                            <span>Followers</span>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="#" class="twitter">
-                                            <i class="fa fa-twitter"></i>
-                                            <h3>50,883</h3>
-                                            <span>Followers</span>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="#" class="dribbble">
-                                            <i class="fa fa-dribbble"></i>
-                                            <h3>4,743</h3>
-                                            <span>Followers</span>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div><!-- Sidebar Block Body End -->
-
-                        </div>
-
-                    </div>
-
-                    <!-- Single Sidebar -->
-                    <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                        <!-- Sidebar Banner -->
-                        <a href="#" class="sidebar-banner">
-                            <img src="{% static 'img/banner/sidebar-banner-1.jpg' %}" alt="Sidebar Banner">
-                        </a>
-
-                    </div>
-
-                    <!-- Single Sidebar -->
-                    <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                        <!-- Sidebar Banner -->
-                        <a href="#" class="sidebar-banner">
-                            <img src="{% static 'img/banner/sidebar-banner-2.jpg' %}" alt="Sidebar Banner">
-                        </a>
-
-                    </div>
-                </div>
-            </div><!-- Sidebar End -->
-
-        </div><!-- Feature Post Row End -->
-
     </div>
-    </div><!-- Post Section End -->
 
-    <!-- Instagram Section Start -->
-    <div class="instagram-section section">
-        <div class="container-fluid">
-            <div class="row">
+    <div class="main-container container" id="main-container">
 
-                <!-- Full Width Instagram Carousel Start -->
-                <div class="fullwidth-instagram-carousel instagram-carousel col pl-0 pr-0">
+        <!-- Content -->
+        <div class="row">
 
-                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/1.jpg' %}"
-                                                            alt="instagram"></a>
-                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/2.jpg' %}"
-                                                            alt="instagram"></a>
-                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/3.jpg' %}"
-                                                            alt="instagram"></a>
-                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/4.jpg' %}"
-                                                            alt="instagram"></a>
-                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/5.jpg' %}"
-                                                            alt="instagram"></a>
-                    <a href="#" class="instagram-item"><img src="{% static 'img/instagram/6.jpg' %}"
-                                                            alt="instagram"></a>
+            <!-- Post Content -->
+            <div class="col-lg-8 blog__content mb-72">
+                <div class="content-box content-box--top-offset">
 
-                </div><!-- Full Width Instagram Carousel End -->
+                    <!-- standard post -->
+                    <article class="entry mb-0">
 
-            </div>
-        </div>
-    </div><!-- Instagram Section End -->
+                        <div class="single-post__entry-header entry__header">
+                            <ul class="entry__meta">
+                                <li class="entry__meta-category">
+                                    <a href="#">{{ content.category }}</a>
+                                </li>
+                            </ul>
+                            <h1 class="single-post__entry-title">
+                                {{ content.title }}
+                            </h1>
+                            <div class="entry__meta-holder">
+                                <ul class="entry__meta">
+                                    <li class="entry__meta-author">
+                                        <span>来自：</span>
+                                        <a href="#">{{ content.user.nick_name }}</a>
+                                    </li>
+                                </ul>
+
+                                <ul class="entry__meta">
+                                    <li class="entry__meta-views">
+                                        <i class="ui-eye"></i>
+                                        <span>{{ content.views }}</span>
+                                    </li>
+                                    <li class="entry__meta-comments">
+                                        <a href="#">
+                                            <i class="ui-chat-empty"></i>13
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> <!-- end entry header -->
+
+                        <div class="entry__article-wrap">
+                            <div class="entry__article">
+                                {{ content.body|safe }}
+
+                                <!-- Final Review -->
+                                <div class="final-review"
+                                     style="background-image: url('{% static 'img/content/single/final_review.jpg' %}')">
+                                    <div class="final-review__score">
+                                        <span class="final-review__score-number">9.2</span>
+                                    </div>
+                                    <div class="final-review__text-holder">
+                                        <h6 class="final-review__title">Great</h6>
+                                        <p class="final-review__text">Lovingly rendered real-world space tech,playing
+                                            through actual missions is a special thrill,scoring system gives much needed
+                                            additional incentive to perfect your designs</p>
+                                    </div>
+                                </div> <!-- end final review -->
+
+                                <!-- tags -->
+                                <div class="entry__tags">
+                                    <i class="ui-tags"></i>
+                                    <span class="entry__tags-label">Tags:</span>
+                                    {% for tag in tags %}
+                                        <a href="#" rel="tag">{{ tag }}</a>
+                                    {% endfor %}
+
+                                </div> <!-- end tags -->
+
+                            </div> <!-- end entry article -->
+                        </div> <!-- end entry article wrap -->
+
+                        <!-- Prev / Next Post -->
+                        <nav class="entry-navigation">
+                            <div class="clearfix">
+                                <div class="entry-navigation--left">
+                                    <i class="ui-arrow-left"></i>
+                                    {% if next_content %}
+                                        <span class="entry-navigation__label">上一篇</span>
+                                        <div class="entry-navigation__link">
+                                            <a href="{% url 'info:info' next_content.id %}"
+                                               rel="next">{{ next_content }}</a>
+                                        </div>
+                                    {% else %}
+                                        <div class="entry-navigation__link">
+                                            <span>真的没了</span>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="entry-navigation--right">
+                                    {% if previous_content %}
+                                        <span class="entry-navigation__label">下一篇</span>
+                                        <i class="ui-arrow-right"></i>
+                                        <div class="entry-navigation__link">
+                                            <a href="{% url 'info:info' previous_content.id %}"
+                                               rel="prev">{{ previous_content }}</a>
+                                        </div>
+                                    {% else %}
+                                        <div class="entry-navigation__link">
+                                            <span>真的没了</span>
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </nav>
+
+                        <!-- Author -->
+                        <div class="entry-author clearfix">
+                            <img alt="" data-src="img/content/single/author.jpg" src="img/empty.png"
+                                 class="avatar lazyload">
+                            <div class="entry-author__info">
+                                <h6 class="entry-author__name">
+                                    <a href="#">John Carpet</a>
+                                </h6>
+                                <p class="mb-0">But unfortunately for most of us our role as gardener has never been
+                                    explained to us. And in misunderstanding our role, we have allowed seeds of all
+                                    types, both good and bad, to enter our inner garden.</p>
+                            </div>
+                        </div>
+
+                        <!-- Related Posts -->
+                        <section class="section related-posts mt-40 mb-0">
+                            <div class="title-wrap title-wrap--line title-wrap--pr">
+                                <h3 class="section-title">Related Articles</h3>
+                            </div>
+
+                            <!-- Slider -->
+                            <div id="owl-posts-3-items" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+                                <article class="entry thumb thumb--size-1">
+                                    <div class="entry__img-holder thumb__img-holder"
+                                         style="background-image: url('img/content/carousel/carousel_post_1.jpg');">
+                                        <div class="bottom-gradient"></div>
+                                        <div class="thumb-text-holder">
+                                            <h2 class="thumb-entry-title">
+                                                <a href="single-post.html">9 Things to Consider Before Accepting a New
+                                                    Job</a>
+                                            </h2>
+                                        </div>
+                                        <a href="single-post.html" class="thumb-url"></a>
+                                    </div>
+                                </article>
+                                <article class="entry thumb thumb--size-1">
+                                    <div class="entry__img-holder thumb__img-holder"
+                                         style="background-image: url('img/content/carousel/carousel_post_2.jpg');">
+                                        <div class="bottom-gradient"></div>
+                                        <div class="thumb-text-holder">
+                                            <h2 class="thumb-entry-title">
+                                                <a href="single-post.html">Gov’t Toughens Rules to Ensure 3rd Telco
+                                                    Player Doesn’t Slack Off</a>
+                                            </h2>
+                                        </div>
+                                        <a href="single-post.html" class="thumb-url"></a>
+                                    </div>
+                                </article>
+                                <article class="entry thumb thumb--size-1">
+                                    <div class="entry__img-holder thumb__img-holder"
+                                         style="background-image: url('img/content/carousel/carousel_post_3.jpg');">
+                                        <div class="bottom-gradient"></div>
+                                        <div class="thumb-text-holder">
+                                            <h2 class="thumb-entry-title">
+                                                <a href="single-post.html">(Infographic) Is Work-Life Balance Even
+                                                    Possible?</a>
+                                            </h2>
+                                        </div>
+                                        <a href="single-post.html" class="thumb-url"></a>
+                                    </div>
+                                </article>
+                                <article class="entry thumb thumb--size-1">
+                                    <div class="entry__img-holder thumb__img-holder"
+                                         style="background-image: url('img/content/carousel/carousel_post_4.jpg');">
+                                        <div class="bottom-gradient"></div>
+                                        <div class="thumb-text-holder">
+                                            <h2 class="thumb-entry-title">
+                                                <a href="single-post.html">Is Uber Considering To Sell its Southeast
+                                                    Asia Business to Grab?</a>
+                                            </h2>
+                                        </div>
+                                        <a href="single-post.html" class="thumb-url"></a>
+                                    </div>
+                                </article>
+                                <article class="entry thumb thumb--size-1">
+                                    <div class="entry__img-holder thumb__img-holder"
+                                         style="background-image: url('img/content/carousel/carousel_post_2.jpg');">
+                                        <div class="bottom-gradient"></div>
+                                        <div class="thumb-text-holder">
+                                            <h2 class="thumb-entry-title">
+                                                <a href="single-post.html">Gov’t Toughens Rules to Ensure 3rd Telco
+                                                    Player Doesn’t Slack Off</a>
+                                            </h2>
+                                        </div>
+                                        <a href="single-post.html" class="thumb-url"></a>
+                                    </div>
+                                </article>
+                            </div> <!-- end slider -->
+
+                        </section> <!-- end related posts -->
+
+                    </article> <!-- end standard post -->
+
+                    <!-- Comments -->
+                    <div class="entry-comments">
+                        <div class="title-wrap title-wrap--line">
+                            <h3 class="section-title">3 comments</h3>
+                        </div>
+                        <ul class="comment-list">
+                            <li class="comment">
+                                <div class="comment-body">
+                                    <div class="comment-avatar">
+                                        <img alt="" src="img/content/single/comment_1.jpg">
+                                    </div>
+                                    <div class="comment-text">
+                                        <h6 class="comment-author">Joeby Ragpa</h6>
+                                        <div class="comment-metadata">
+                                            <a href="#" class="comment-date">July 17, 2017 at 12:48 pm</a>
+                                        </div>
+                                        <p>This template is so awesome. I didn’t expect so many features inside.
+                                            E-commerce pages are very useful, you can launch your online store in few
+                                            seconds. I will rate 5 stars.</p>
+                                        <a href="#" class="comment-reply">Reply</a>
+                                    </div>
+                                </div>
+
+                                <ul class="children">
+                                    <li class="comment">
+                                        <div class="comment-body">
+                                            <div class="comment-avatar">
+                                                <img alt="" src="img/content/single/comment_2.jpg">
+                                            </div>
+                                            <div class="comment-text">
+                                                <h6 class="comment-author">Alexander Samokhin</h6>
+                                                <div class="comment-metadata">
+                                                    <a href="#" class="comment-date">July 17, 2017 at 12:48 pm</a>
+                                                </div>
+                                                <p>This template is so awesome. I didn’t expect so many features inside.
+                                                    E-commerce pages are very useful, you can launch your online store
+                                                    in few seconds. I will rate 5 stars.</p>
+                                                <a href="#" class="comment-reply">Reply</a>
+                                            </div>
+                                        </div>
+                                    </li> <!-- end reply comment -->
+                                </ul>
+
+                            </li> <!-- end 1-2 comment -->
+
+                            <li>
+                                <div class="comment-body">
+                                    <div class="comment-avatar">
+                                        <img alt="" src="img/content/single/comment_3.jpg">
+                                    </div>
+                                    <div class="comment-text">
+                                        <h6 class="comment-author">Chris Root</h6>
+                                        <div class="comment-metadata">
+                                            <a href="#" class="comment-date">July 17, 2017 at 12:48 pm</a>
+                                        </div>
+                                        <p>This template is so awesome. I didn’t expect so many features inside.
+                                            E-commerce pages are very useful, you can launch your online store in few
+                                            seconds. I will rate 5 stars.</p>
+                                        <a href="#" class="comment-reply">Reply</a>
+                                    </div>
+                                </div>
+                            </li> <!-- end 3 comment -->
+
+                        </ul>
+                    </div> <!-- end comments -->
+
+                    <!-- Comment Form -->
+                    <div id="respond" class="comment-respond">
+                        <div class="title-wrap">
+                            <h5 class="comment-respond__title section-title">Leave a Reply</h5>
+                        </div>
+                        <form id="form" class="comment-form" method="post" action="#">
+                            <p class="comment-form-comment">
+                                <label for="comment">Comment</label>
+                                <textarea id="comment" name="comment" rows="5" required="required"></textarea>
+                            </p>
+
+                            <div class="row row-20">
+                                <div class="col-lg-4">
+                                    <label for="name">Name: *</label>
+                                    <input name="name" id="name" type="text">
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="comment">Email: *</label>
+                                    <input name="email" id="email" type="email">
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="comment">Website:</label>
+                                    <input name="website" id="website" type="text">
+                                </div>
+                            </div>
+
+                            <p class="comment-form-submit">
+                                <input type="submit" class="btn btn-lg btn-color btn-button" value="Post Comment"
+                                       id="submit-message">
+                            </p>
+
+                        </form>
+                    </div> <!-- end comment form -->
+
+                </div> <!-- end content box -->
+            </div> <!-- end post content -->
+
+            <!-- Sidebar -->
+            <aside class="col-lg-4 sidebar sidebar--right">
+
+                <!-- Widget Popular Posts -->
+                <aside class="widget widget-popular-posts">
+                    <h4 class="widget-title">Top Picks</h4>
+                    <ul class="post-list-small">
+                        <li class="post-list-small__item">
+                            <article class="post-list-small__entry clearfix">
+                                <div class="post-list-small__img-holder">
+                                    <div class="thumb-container thumb-100">
+                                        <a href="single-post-games.html">
+                                            <img data-src="img/content/post_small/post_small_37.jpg" src="img/empty.png"
+                                                 alt="" class="post-list-small__img--rounded lazyload">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-list-small__body">
+                                    <h3 class="post-list-small__entry-title">
+                                        <a href="single-post-games.html">Follow These Smartphone Habits of Successful
+                                            Entrepreneurs</a>
+                                    </h3>
+                                    <ul class="entry__meta">
+                                        <li class="entry__meta-author">
+                                            <span>by</span>
+                                            <a href="#">DeoThemes</a>
+                                        </li>
+                                        <li class="entry__meta-date">
+                                            Jan 21, 2018
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="post-list-small__item">
+                            <article class="post-list-small__entry clearfix">
+                                <div class="post-list-small__img-holder">
+                                    <div class="thumb-container thumb-100">
+                                        <a href="single-post-games.html">
+                                            <img data-src="img/content/post_small/post_small_38.jpg" src="img/empty.png"
+                                                 alt="" class="post-list-small__img--rounded lazyload">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-list-small__body">
+                                    <h3 class="post-list-small__entry-title">
+                                        <a href="single-post-games.html">Lose These 12 Bad Habits If You're Serious
+                                            About Becoming a Millionaire</a>
+                                    </h3>
+                                    <ul class="entry__meta">
+                                        <li class="entry__meta-author">
+                                            <span>by</span>
+                                            <a href="#">DeoThemes</a>
+                                        </li>
+                                        <li class="entry__meta-date">
+                                            Jan 21, 2018
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="post-list-small__item">
+                            <article class="post-list-small__entry clearfix">
+                                <div class="post-list-small__img-holder">
+                                    <div class="thumb-container thumb-100">
+                                        <a href="single-post-games.html">
+                                            <img data-src="img/content/post_small/post_small_39.jpg" src="img/empty.png"
+                                                 alt="" class="post-list-small__img--rounded lazyload">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-list-small__body">
+                                    <h3 class="post-list-small__entry-title">
+                                        <a href="single-post-games.html">June in Africa: Taxi wars, smarter cities and
+                                            increased investments</a>
+                                    </h3>
+                                    <ul class="entry__meta">
+                                        <li class="entry__meta-author">
+                                            <span>by</span>
+                                            <a href="#">DeoThemes</a>
+                                        </li>
+                                        <li class="entry__meta-date">
+                                            Jan 21, 2018
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="post-list-small__item">
+                            <article class="post-list-small__entry clearfix">
+                                <div class="post-list-small__img-holder">
+                                    <div class="thumb-container thumb-100">
+                                        <a href="single-post-games.html">
+                                            <img data-src="img/content/post_small/post_small_40.jpg" src="img/empty.png"
+                                                 alt="" class="post-list-small__img--rounded lazyload">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-list-small__body">
+                                    <h3 class="post-list-small__entry-title">
+                                        <a href="single-post-games.html">PUBG Desert Map Finally Revealed, Here Are All
+                                            The Details</a>
+                                    </h3>
+                                    <ul class="entry__meta">
+                                        <li class="entry__meta-author">
+                                            <span>by</span>
+                                            <a href="#">DeoThemes</a>
+                                        </li>
+                                        <li class="entry__meta-date">
+                                            Jan 21, 2018
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </aside> <!-- end widget popular posts -->
+
+                <!-- Widget Reviews -->
+                <aside class="widget widget-review-posts">
+                    <h4 class="widget-title">Game Reviews</h4>
+                    <article class="entry">
+                        <div class="entry__img-holder">
+                            <a href="single-post-games.html">
+                                <div class="thumb-container thumb-60">
+                                    <img data-src="img/content/review/review_post_3.jpg" src="img/empty.png"
+                                         class="entry__img lazyload" alt="">
+                                    <span class="entry-score">9.2</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="entry__body">
+                            <div class="entry__header">
+                                <h2 class="entry__title">
+                                    <a href="single-post-games.html">Deep Rock Galactic Is A Cooperative Blast</a>
+                                </h2>
+                                <ul class="entry__meta">
+                                    <li class="entry__meta-author">
+                                        <span>by</span>
+                                        <a href="#">DeoThemes</a>
+                                    </li>
+                                    <li class="entry__meta-date">
+                                        Jan 21, 2018
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="entry">
+                        <div class="entry__img-holder">
+                            <a href="single-post-games.html">
+                                <div class="thumb-container thumb-60">
+                                    <img data-src="img/content/review/review_post_4.jpg" src="img/empty.png"
+                                         class="entry__img lazyload" alt="">
+                                    <span class="entry-score">8.9</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="entry__body">
+                            <div class="entry__header">
+                                <h2 class="entry__title">
+                                    <a href="single-post-games.html">With a mix of dynamic stealth and high-flying
+                                        action, Spider-Man</a>
+                                </h2>
+                                <ul class="entry__meta">
+                                    <li class="entry__meta-author">
+                                        <span>by</span>
+                                        <a href="#">DeoThemes</a>
+                                    </li>
+                                    <li class="entry__meta-date">
+                                        Jan 21, 2018
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="entry">
+                        <div class="entry__img-holder">
+                            <a href="single-post-games.html">
+                                <div class="thumb-container thumb-60">
+                                    <img data-src="img/content/review/review_post_5.jpg" src="img/empty.png"
+                                         class="entry__img lazyload" alt="">
+                                    <span class="entry-score">8.5</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="entry__body">
+                            <div class="entry__header">
+                                <h2 class="entry__title">
+                                    <a href="single-post-games.html">With a mix of dynamic stealth and high-flying
+                                        action, Spider-Man</a>
+                                </h2>
+                                <ul class="entry__meta">
+                                    <li class="entry__meta-author">
+                                        <span>by</span>
+                                        <a href="#">DeoThemes</a>
+                                    </li>
+                                    <li class="entry__meta-date">
+                                        Jan 21, 2018
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <button class="btn btn-lg btn-light btn-wide load-more">
+                        <span>Load More <i class="ui-arrow-down"></i></span>
+                    </button>
+
+                </aside> <!-- end widget reviews -->
+
+            </aside> <!-- end sidebar -->
+
+        </div> <!-- end content -->
+    </div> <!-- end main container -->
 {% endblock %}
+{% block custom_js %}
+{% endblock %}
+{% block body_end %}
+    </body>
+{% endblock %}
+
