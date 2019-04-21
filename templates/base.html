@@ -364,9 +364,9 @@
                                     </button>
                                 </form>
                             </div>
-                        </div>
+                        </div><!-- 结束搜索 -->
 
-                    </div> <!-- 结束搜索 -->
+                    </div>
 
                 </div> <!-- 结束伸缩 -->
             </div> <!-- 容器结束 -->
@@ -374,127 +374,128 @@
         </div>
     </header> <!-- 导航条结束 -->
 
-</main>
 
-{% block custom_bread %}
-    {#面包屑#}
-{% endblock %}
 
-{% block content %}
-    {#正文#}
-{% endblock %}
+    {% block custom_bread %}
+        {#面包屑#}
+    {% endblock %}
 
-<!-- Footer -->
-<footer class="footer footer--dark">
-    <div class="container">
-        <div class="footer__widgets">
-            <div class="footer__widgets-top">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md-4">
-                        <a href="index.html">
-                            <img src="{% static 'img/logo_games_white.png' %}"
-                                 srcset="{% static 'img/logo_games_white.png' %} 1x, {% static 'img/logo_games_white@2x.png' %} 2x"
-                                 class="logo__img" alt="">
-                        </a>
-                    </div>
+    {% block content %}
+        {#正文#}
+    {% endblock %}
 
-                    <div class="col-md-6">
-                        <div class="socials socials--large socials--nobase justify-content-md-end">
-                            <a href="#" class="social social-facebook" aria-label="facebook"><i
-                                    class="ui-facebook"></i></a>
-                            <a href="#" class="social social-twitter" aria-label="twitter"><i
-                                    class="ui-twitter"></i></a>
-                            <a href="#" class="social social-google-plus" aria-label="google+"><i
-                                    class="ui-google"></i></a>
-                            <a href="#" class="social social-youtube" aria-label="youtube"><i
-                                    class="ui-youtube"></i></a>
-                            <a href="#" class="social social-instagram" aria-label="instagram"><i
-                                    class="ui-instagram"></i></a>
+    <!-- Footer -->
+    <footer class="footer footer--dark">
+        <div class="container">
+            <div class="footer__widgets">
+                <div class="footer__widgets-top">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-4">
+                            <a href="index.html">
+                                <img src="{% static 'img/logo_games_white.png' %}"
+                                     srcset="{% static 'img/logo_games_white.png' %} 1x, {% static 'img/logo_games_white@2x.png' %} 2x"
+                                     class="logo__img" alt="">
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="socials socials--large socials--nobase justify-content-md-end">
+                                <a href="#" class="social social-facebook" aria-label="facebook"><i
+                                        class="ui-facebook"></i></a>
+                                <a href="#" class="social social-twitter" aria-label="twitter"><i
+                                        class="ui-twitter"></i></a>
+                                <a href="#" class="social social-google-plus" aria-label="google+"><i
+                                        class="ui-google"></i></a>
+                                <a href="#" class="social social-youtube" aria-label="youtube"><i
+                                        class="ui-youtube"></i></a>
+                                <a href="#" class="social social-instagram" aria-label="instagram"><i
+                                        class="ui-instagram"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+
+                    <div class="col-lg-2 col-md-6">
+                        <aside class="widget widget_nav_menu">
+                            <h4 class="widget-title">精彩故事</h4>
+                            <ul>
+                                <li><a href="info.html">为什么地平线零黎明</a></li>
+                                <li><a href="info.html">超人</a></li>
+                                <li><a href="info.html">最好的任天堂游戏</a></li>
+                                <li><a href="info.html">王国之心3</a></li>
+                                <li><a href="info.html">七龙珠</a></li>
+                                <li><a href="info.html">战争之神</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <aside class="widget widget-twitter">
+                            <h4 class="widget-title">最佳推荐</h4>
+                            <div class="tweets-container">
+                                <div id="tweets"></div>
+                            </div>
+                        </aside>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6">
+                        <aside class="widget widget_nav_menu">
+                            <h4 class="widget-title">主要链接</h4>
+                            <ul>
+                                <li><a href="about.html">关于</a></li>
+                                <li><a href="contact.html">联系</a></li>
+                                <li><a href="info.html">项目</a></li>
+                                <li><a href="categories.html">广告</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <aside class="widget widget_tag_cloud">
+                            <h4 class="widget-title">热门标签</h4>
+                            <div class="tagcloud">
+                                <a href="#">动作</a>
+                                <a href="#">冒险</a>
+                                <a href="#">台北</a>
+                                <a href="#">北海道</a>
+                                <a href="#">香港</a>
+                                <a href="#">爱情海</a>
+                                <a href="#">北海公园</a>
+                                <a href="#">巴厘岛</a>
+                                <a href="#">加利福尼亚</a>
+                                <a href="#">澳大利亚</a>
+                                <a href="#">新加坡</a>
+                                <a href="#">马来西亚</a>
+                            </div>
+                        </aside>
+                    </div>
+
+                </div> <!-- end row -->
+            </div> <!-- end footer widgets -->
+        </div> <!-- end container -->
+
+        <div class="footer__bottom footer__bottom--dark">
+            <div class="container text-center">
+                <ul class="footer__nav-menu footer__nav-menu--1">
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="contact.html">新闻</a></li>
+                    <li><a href="categories.html">广告</a></li>
+                    <li><a href="shortcodes.html">旅游</a></li>
+                    <li><a href="shortcodes.html">联系</a></li>
+                </ul>
+                <p class="copyright">
+                    © 2019 Uuu | 由<a href="http://www.bgushi.com/">Saigege</a>制作
+                </p>
             </div>
+        </div> <!-- end footer bottom -->
+    </footer> <!-- end footer -->
 
-            <div class="row">
-
-                <div class="col-lg-2 col-md-6">
-                    <aside class="widget widget_nav_menu">
-                        <h4 class="widget-title">精彩故事</h4>
-                        <ul>
-                            <li><a href="info.html">为什么地平线零黎明</a></li>
-                            <li><a href="info.html">超人</a></li>
-                            <li><a href="info.html">最好的任天堂游戏</a></li>
-                            <li><a href="info.html">王国之心3</a></li>
-                            <li><a href="info.html">七龙珠</a></li>
-                            <li><a href="info.html">战争之神</a></li>
-                        </ul>
-                    </aside>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <aside class="widget widget-twitter">
-                        <h4 class="widget-title">最佳推荐</h4>
-                        <div class="tweets-container">
-                            <div id="tweets"></div>
-                        </div>
-                    </aside>
-                </div>
-
-                <div class="col-lg-2 col-md-6">
-                    <aside class="widget widget_nav_menu">
-                        <h4 class="widget-title">主要链接</h4>
-                        <ul>
-                            <li><a href="about.html">关于</a></li>
-                            <li><a href="contact.html">联系</a></li>
-                            <li><a href="info.html">项目</a></li>
-                            <li><a href="categories.html">广告</a></li>
-                        </ul>
-                    </aside>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <aside class="widget widget_tag_cloud">
-                        <h4 class="widget-title">热门标签</h4>
-                        <div class="tagcloud">
-                            <a href="#">动作</a>
-                            <a href="#">冒险</a>
-                            <a href="#">台北</a>
-                            <a href="#">北海道</a>
-                            <a href="#">香港</a>
-                            <a href="#">爱情海</a>
-                            <a href="#">北海公园</a>
-                            <a href="#">巴厘岛</a>
-                            <a href="#">加利福尼亚</a>
-                            <a href="#">澳大利亚</a>
-                            <a href="#">新加坡</a>
-                            <a href="#">马来西亚</a>
-                        </div>
-                    </aside>
-                </div>
-
-            </div> <!-- end row -->
-        </div> <!-- end footer widgets -->
-    </div> <!-- end container -->
-
-    <div class="footer__bottom footer__bottom--dark">
-        <div class="container text-center">
-            <ul class="footer__nav-menu footer__nav-menu--1">
-                <li><a href="about.html">关于</a></li>
-                <li><a href="contact.html">新闻</a></li>
-                <li><a href="categories.html">广告</a></li>
-                <li><a href="shortcodes.html">旅游</a></li>
-                <li><a href="shortcodes.html">联系</a></li>
-            </ul>
-            <p class="copyright">
-                © 2019 Uuu | 由<a href="http://www.bgushi.com/">Saigege</a>制作
-            </p>
-        </div>
-    </div> <!-- end footer bottom -->
-</footer> <!-- end footer -->
-
-<div id="back-to-top">
-    <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
-</div>
+    <div id="back-to-top">
+        <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
+    </div>
+</main>
 
 {% block custom_js %}
 {% endblock %}
