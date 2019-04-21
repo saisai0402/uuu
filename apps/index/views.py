@@ -11,7 +11,7 @@ class IndexView(View):
 
     def get(self, request):
         # 设置首页SEO
-        index_seo = IndexSeo.objects.all().order_by('-add_time')
+        index_seo = IndexSeo.objects.all()[0]
         # 获取服务器时间
         nt = datetime.now()
 
