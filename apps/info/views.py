@@ -17,7 +17,7 @@ class InfoView(View):
                                               category=content.category.id).last()
         # 取出文章对应标签所有标签
         tags = content.tags.all()
-        relate_articles = Article.objects.all().order_by('?')[0:3]
+        relate_articles = Article.objects.all().order_by('?')[0:9]
         return render(request, 'info.html', {
             'content': content,
             'previous_content': previous_content,
