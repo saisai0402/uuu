@@ -102,7 +102,7 @@
                                 <!-- tags -->
                                 <div class="entry__tags">
                                     <i class="ui-tags"></i>
-                                    <span class="entry__tags-label">Tags:</span>
+                                    <span class="entry__tags-label">标签:</span>
                                     {% for tag in tags %}
                                         <a href="#" rel="tag">{{ tag }}</a>
                                     {% endfor %}
@@ -149,93 +149,28 @@
                             </div>
                         </nav>
 
-                        <!-- Author -->
-                        <div class="entry-author clearfix">
-                            <img alt="" data-src="img/content/single/author.jpg" src="img/empty.png"
-                                 class="avatar lazyload">
-                            <div class="entry-author__info">
-                                <h6 class="entry-author__name">
-                                    <a href="#">John Carpet</a>
-                                </h6>
-                                <p class="mb-0">But unfortunately for most of us our role as gardener has never been
-                                    explained to us. And in misunderstanding our role, we have allowed seeds of all
-                                    types, both good and bad, to enter our inner garden.</p>
-                            </div>
-                        </div>
-
                         <!-- Related Posts -->
                         <section class="section related-posts mt-40 mb-0">
                             <div class="title-wrap title-wrap--line title-wrap--pr">
-                                <h3 class="section-title">Related Articles</h3>
+                                <h3 class="section-title">相关文章</h3>
                             </div>
 
                             <!-- Slider -->
                             <div id="owl-posts-3-items" class="owl-carousel owl-theme owl-carousel--arrows-outside">
-                                <article class="entry thumb thumb--size-1">
-                                    <div class="entry__img-holder thumb__img-holder"
-                                         style="background-image: url('img/content/carousel/carousel_post_1.jpg');">
-                                        <div class="bottom-gradient"></div>
-                                        <div class="thumb-text-holder">
-                                            <h2 class="thumb-entry-title">
-                                                <a href="single-post.html">9 Things to Consider Before Accepting a New
-                                                    Job</a>
-                                            </h2>
+                                {% for relate_article in relate_articles %}
+                                    <article class="entry thumb thumb--size-1">
+                                        <div class="entry__img-holder thumb__img-holder"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ relate_article.img }}');">
+                                            <div class="bottom-gradient"></div>
+                                            <div class="thumb-text-holder">
+                                                <h2 class="thumb-entry-title">
+                                                    <a href="{% url 'info:info' relate_article.id %}">{{ relate_article.title }}</a>
+                                                </h2>
+                                            </div>
+                                            <a href="{% url 'info:info' relate_article.id %}" class="thumb-url"></a>
                                         </div>
-                                        <a href="single-post.html" class="thumb-url"></a>
-                                    </div>
-                                </article>
-                                <article class="entry thumb thumb--size-1">
-                                    <div class="entry__img-holder thumb__img-holder"
-                                         style="background-image: url('img/content/carousel/carousel_post_2.jpg');">
-                                        <div class="bottom-gradient"></div>
-                                        <div class="thumb-text-holder">
-                                            <h2 class="thumb-entry-title">
-                                                <a href="single-post.html">Gov’t Toughens Rules to Ensure 3rd Telco
-                                                    Player Doesn’t Slack Off</a>
-                                            </h2>
-                                        </div>
-                                        <a href="single-post.html" class="thumb-url"></a>
-                                    </div>
-                                </article>
-                                <article class="entry thumb thumb--size-1">
-                                    <div class="entry__img-holder thumb__img-holder"
-                                         style="background-image: url('img/content/carousel/carousel_post_3.jpg');">
-                                        <div class="bottom-gradient"></div>
-                                        <div class="thumb-text-holder">
-                                            <h2 class="thumb-entry-title">
-                                                <a href="single-post.html">(Infographic) Is Work-Life Balance Even
-                                                    Possible?</a>
-                                            </h2>
-                                        </div>
-                                        <a href="single-post.html" class="thumb-url"></a>
-                                    </div>
-                                </article>
-                                <article class="entry thumb thumb--size-1">
-                                    <div class="entry__img-holder thumb__img-holder"
-                                         style="background-image: url('img/content/carousel/carousel_post_4.jpg');">
-                                        <div class="bottom-gradient"></div>
-                                        <div class="thumb-text-holder">
-                                            <h2 class="thumb-entry-title">
-                                                <a href="single-post.html">Is Uber Considering To Sell its Southeast
-                                                    Asia Business to Grab?</a>
-                                            </h2>
-                                        </div>
-                                        <a href="single-post.html" class="thumb-url"></a>
-                                    </div>
-                                </article>
-                                <article class="entry thumb thumb--size-1">
-                                    <div class="entry__img-holder thumb__img-holder"
-                                         style="background-image: url('img/content/carousel/carousel_post_2.jpg');">
-                                        <div class="bottom-gradient"></div>
-                                        <div class="thumb-text-holder">
-                                            <h2 class="thumb-entry-title">
-                                                <a href="single-post.html">Gov’t Toughens Rules to Ensure 3rd Telco
-                                                    Player Doesn’t Slack Off</a>
-                                            </h2>
-                                        </div>
-                                        <a href="single-post.html" class="thumb-url"></a>
-                                    </div>
-                                </article>
+                                    </article>
+                                {% endfor %}
                             </div> <!-- end slider -->
 
                         </section> <!-- end related posts -->
@@ -311,31 +246,31 @@
                     <!-- Comment Form -->
                     <div id="respond" class="comment-respond">
                         <div class="title-wrap">
-                            <h5 class="comment-respond__title section-title">Leave a Reply</h5>
+                            <h5 class="comment-respond__title section-title">留下评论</h5>
                         </div>
                         <form id="form" class="comment-form" method="post" action="#">
                             <p class="comment-form-comment">
-                                <label for="comment">Comment</label>
+                                <label for="comment">你不想说点什么吗？</label>
                                 <textarea id="comment" name="comment" rows="5" required="required"></textarea>
                             </p>
 
                             <div class="row row-20">
                                 <div class="col-lg-4">
-                                    <label for="name">Name: *</label>
+                                    <label for="name">姓名: *</label>
                                     <input name="name" id="name" type="text">
                                 </div>
                                 <div class="col-lg-4">
-                                    <label for="comment">Email: *</label>
+                                    <label for="comment">邮箱: *</label>
                                     <input name="email" id="email" type="email">
                                 </div>
                                 <div class="col-lg-4">
-                                    <label for="comment">Website:</label>
+                                    <label for="comment">网址:</label>
                                     <input name="website" id="website" type="text">
                                 </div>
                             </div>
 
                             <p class="comment-form-submit">
-                                <input type="submit" class="btn btn-lg btn-color btn-button" value="Post Comment"
+                                <input type="submit" class="btn btn-lg btn-color btn-button" value="立即发布"
                                        id="submit-message">
                             </p>
 
