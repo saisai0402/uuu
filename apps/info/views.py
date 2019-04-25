@@ -17,11 +17,16 @@ class InfoView(View):
                                               category=content.category.id).last()
         # 取出文章对应标签所有标签
         tags = content.tags.all()
-        relate_articles = Article.objects.all().order_by('?')[0:9]
+        relate_articles = Article.objects.all().order_by('?')[0:10]
+        # 旅游指南是多对多查询
+        guide_articles = Article.objects.prefetch_related('tags').order_by('?')[:10]
+        hot_articles = Article.objects.all().order_by('-views')[0:10]
         return render(request, 'info.html', {
             'content': content,
             'previous_content': previous_content,
             'next_content': next_content,
             'relate_articles': relate_articles,
+            'guide_articles': guide_articles,
+            'hot_articles': hot_articles,
             'tags': tags
         })

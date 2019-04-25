@@ -2364,9 +2364,9 @@ img.mfp-img {
 		border-bottom: 0; }
 
 .post-list-small__img-holder {
-	width: 88px;
+	width: 70px;
 	float: left;
-	border-radius: 50%;
+	border-radius: 5%;
 	overflow: hidden;
 	margin-right: 16px; }
 	@media only screen and (max-width: 575px) {
@@ -2374,7 +2374,7 @@ img.mfp-img {
 			width: 50px; } }
 
 .post-list-small__img--rounded {
-	border-radius: 50%;
+	border-radius: 5%;
 	overflow: hidden; }
 
 .post-list-small__body {
@@ -2506,13 +2506,13 @@ img.mfp-img {
 	border-radius: 50%;
 	border: 2px solid #fff;
 	background-color: #2D95E3;
-	width: 34px;
+	width: 50px;
 	height: 34px;
-	line-height: 32px;
+	line-height: 30px;
 	text-align: center;
 	font-weight: 700;
 	color: #fff;
-	font-size: 14px; }
+	font-size: 16px; }
 
 .entry__img-holder .entry-score {
 	position: absolute;
