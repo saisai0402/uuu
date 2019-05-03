@@ -80,9 +80,16 @@
 
                 <!-- Pagination -->
                 <nav class="pagination">
+                    <a href="{% url 'category:category' category.id %}" class="pagination__page">
+                        <i class="ui-arrow-left"></i>
+                        <i class="ui-arrow-left"></i>
+                    </a>
+{#                    <a href="{% url 'category:category' category.id %}" class="pagination__page">#}
+{#                        <span class="pagination__page pagination__page--current">首页</span>#}
+{#                    </a>#}
                     {% if category_all_articles.has_previous %}
-                        <a href="{{ category_all_articles.previous_page_number.querystring }}" class="pagination__page">
-                            <span class="pagination__page pagination__page--current">上一页</span>
+                        <a href="?{{ category_all_articles.previous_page_number.querystring }}" class="pagination__page">
+                            <i class="ui-arrow-left"></i>
                         </a>
                     {% endif %}
                     {% for page in category_all_articles.pages %}
@@ -96,13 +103,15 @@
                             <a href="?{{ page.querystring }}" class="pagination__page">...</a>
                         {% endif %}
                     {% endfor %}
-                    {% if all_courses.has_next %}
-                        <a href="{{ category_all_articles.previous_page_number.querystring }}" class="pagination__page">
-                            <span class="pagination__page pagination__page--current">上一页</span>
+                    {% if category_all_articles.has_next %}
+                        <a href="?{{ category_all_articles.next_page_number.querystring }}" class="pagination__page">
+                            <i class="ui-arrow-right"></i>
                         </a>
                     {% endif %}
-                    <a href="#" class="pagination__page pagination__icon pagination__page--next"><i
-                            class="ui-arrow-right"></i></a>
+                    <a href="?page={{ last_index }}" class="pagination__page">
+                        <i class="ui-arrow-right"></i>
+                        <i class="ui-arrow-right"></i>
+                    </a>
                 </nav>
             </div> <!-- end posts -->
 

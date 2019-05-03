@@ -51,11 +51,14 @@ class CategoryView(View):
         except PageNotAnInteger:
             page = 1
         # 这里指从category_articles中取10个出来，每页显示10个
-        p = Paginator(new_articles, 10, request=request)
+        p = Paginator(new_articles, 2, request=request)
         category_all_articles = p.page(page)
+
+        last_index = len(p.object_list) // 2 + 1
         return render(request, 'category.html', {
             'category': category,
             'category_all_articles': category_all_articles,
             'category_hot_articles': category_hot_articles,
-            'category_guide_articles': category_guide_articles
+            'category_guide_articles': category_guide_articles,
+            'last_index': last_index
         })

@@ -198,20 +198,9 @@ CKEDITOR_CONFIGS = {
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_BROWSE_SHOW_DIRS = True
 
-# SIMDITOR_TOOLBAR = [
-#     'title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale',
-#     'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link',
-#     'image', 'hr', '|', 'indent', 'outdent', 'alignment', 'fullscreen',
-#     'markdown', 'emoji'
-# ]
-#
-# SIMDITOR_CONFIGS = {
-#     'toolbar': SIMDITOR_TOOLBAR,
-#     'upload': {
-#         'url': '/simditor/upload/',
-#         'fileKey': 'upload'
-#     },
-#     'emoji': {
-#         'imagePath': '/static/simditor/images/emoji/'
-#     }
-# }
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 1,
+    'MARGIN_PAGES_DISPLAYED': 1,
+
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+}
