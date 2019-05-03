@@ -20,8 +20,8 @@ class ArticleView(View):
         tags = article.tags.all()
         relate_articles = Article.objects.all().order_by('?')[0:10]
         # 旅游指南是多对多查询
-        guide_articles = Article.objects.prefetch_related('tags').order_by('?')[:10]
-        hot_articles = Article.objects.all().order_by('-views')[0:10]
+        guide_articles = Article.objects.prefetch_related('tags').order_by('?')[:5]
+        hot_articles = Article.objects.all().order_by('-views')[0:6]
         return render(request, 'article.html', {
             'article': article,
             'previous_article': previous_article,
@@ -51,14 +51,12 @@ class CategoryView(View):
         except PageNotAnInteger:
             page = 1
         # 这里指从category_articles中取10个出来，每页显示10个
-        p = Paginator(new_articles, 2, request=request)
+        p = Paginator(new_articles, 10, request=request)
         category_all_articles = p.page(page)
 
-        last_index = len(p.object_list) // 2 + 1
         return render(request, 'category.html', {
             'category': category,
             'category_all_articles': category_all_articles,
             'category_hot_articles': category_hot_articles,
             'category_guide_articles': category_guide_articles,
-            'last_index': last_index
         })
