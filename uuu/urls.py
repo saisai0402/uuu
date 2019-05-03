@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('index.urls', namespace="index")),
-    path('info/', include('info.urls', namespace="info")),
+    path('', include('info.urls', namespace="article")),
+    path('', include('info.urls', namespace="category")),
     path('admin/', xadmin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

@@ -53,24 +53,24 @@
                         <div class="single-post__entry-header entry__header">
                             <ul class="entry__meta">
                                 <li class="entry__meta-category">
-                                    <a href="#">{{ content.category }}</a>
+                                    <a href="#">{{ article.category }}</a>
                                 </li>
                             </ul>
                             <h1 class="single-post__entry-title">
-                                {{ content.title }}
+                                {{ article.title }}
                             </h1>
                             <div class="entry__meta-holder">
                                 <ul class="entry__meta">
                                     <li class="entry__meta-author">
                                         <span>来自：</span>
-                                        <a href="#">{{ content.user.nick_name }}</a>
+                                        <a href="#">{{ article.user.nick_name }}</a>
                                     </li>
                                 </ul>
 
                                 <ul class="entry__meta">
                                     <li class="entry__meta-views">
                                         <i class="ui-eye"></i>
-                                        <span>{{ content.views }}</span>
+                                        <span>{{ article.views }}</span>
                                     </li>
                                     <li class="entry__meta-comments">
                                         <a href="#">
@@ -83,7 +83,7 @@
 
                         <div class="entry__article-wrap">
                             <div class="entry__article">
-                                {{ content.body|safe }}
+                                {{ article.body|safe }}
 
                                 <!-- Final Review -->
                                 <div class="final-review"
@@ -108,11 +108,11 @@
                             <div class="clearfix">
                                 <div class="entry-navigation--left">
                                     <i class="ui-arrow-left"></i>
-                                    {% if next_content %}
+                                    {% if next_article %}
                                         <span class="entry-navigation__label">上一篇</span>
                                         <div class="entry-navigation__link">
-                                            <a href="{% url 'info:info' next_content.id %}"
-                                               rel="next">{{ next_content }}</a>
+                                            <a href="{% url 'article:article' next_article.id %}"
+                                               rel="next">{{ next_article }}</a>
                                         </div>
                                     {% else %}
                                         <span class="entry-navigation__label">上一篇</span>
@@ -122,12 +122,12 @@
                                     {% endif %}
                                 </div>
                                 <div class="entry-navigation--right">
-                                    {% if previous_content %}
+                                    {% if previous_article %}
                                         <span class="entry-navigation__label">下一篇</span>
                                         <i class="ui-arrow-right"></i>
                                         <div class="entry-navigation__link">
-                                            <a href="{% url 'info:info' previous_content.id %}"
-                                               rel="prev">{{ previous_content }}</a>
+                                            <a href="{% url 'article:article' previous_article.id %}"
+                                               rel="prev">{{ previous_article }}</a>
                                         </div>
                                     {% else %}
                                         <span class="entry-navigation__label">下一篇</span>
@@ -155,10 +155,10 @@
                                             <div class="bottom-gradient"></div>
                                             <div class="thumb-text-holder">
                                                 <h2 class="thumb-entry-title">
-                                                    <a href="{% url 'info:info' relate_article.id %}">{{ relate_article.title }}</a>
+                                                    <a href="{% url 'article:article' relate_article.id %}">{{ relate_article.title }}</a>
                                                 </h2>
                                             </div>
-                                            <a href="{% url 'info:info' relate_article.id %}" class="thumb-url"></a>
+                                            <a href="{% url 'article:article' relate_article.id %}" class="thumb-url"></a>
                                         </div>
                                     </article>
                                 {% endfor %}
@@ -253,7 +253,7 @@
                     {% for hot_article in hot_articles %}
                         <article class="entry">
                             <div class="entry__img-holder">
-                                <a href="{% url 'info:info' hot_article.id %}">
+                                <a href="{% url 'article:article' hot_article.id %}">
                                     <div class="thumb-container thumb-60">
                                         <img data-src="{{ MEDIA_URL }}{{ hot_article.img }}"
                                              src="{% static 'img/empty.png' %}"
@@ -266,7 +266,7 @@
                             <div class="entry__body">
                                 <div class="entry__header">
                                     <h2 class="entry__title">
-                                        <a href="{% url 'info:info' hot_article.id %}">{{ hot_article.title }}</a>
+                                        <a href="{% url 'article:article' hot_article.id %}">{{ hot_article.title }}</a>
                                     </h2>
                                     <ul class="entry__meta">
                                         <li class="entry__meta-author">
@@ -296,7 +296,7 @@
                                 <article class="post-list-small__entry clearfix">
                                     <div class="post-list-small__img-holder">
                                         <div class="thumb-container thumb-100">
-                                            <a href="{% url 'info:info' guide_article.id %}">
+                                            <a href="{% url 'article:article' guide_article.id %}">
                                                 <img data-src="{{ MEDIA_URL }}{{ guide_article.img }}"
                                                      src="{% static 'img/empty.png' %}"
                                                      alt="" class="post-list-small__img--rounded lazyload">
@@ -305,7 +305,7 @@
                                     </div>
                                     <div class="post-list-small__body">
                                         <h3 class="post-list-small__entry-title">
-                                            <a href="{% url 'info:info' guide_article.id %}">{{ guide_article.title }}</a>
+                                            <a href="{% url 'article:article' guide_article.id %}">{{ guide_article.title }}</a>
                                         </h3>
                                         <ul class="entry__meta">
                                             <li class="entry__meta-author">
