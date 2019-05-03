@@ -37,6 +37,9 @@ class CategoryView(View):
 
     def get(self, request, category_id):
         category = Category.objects.get(id=int(category_id))
+        new_articles = Article.objects.prefetch_related('category').order_by('-modified_time')[:10]
         return render(request, 'category.html', {
             'category': category,
+            'new_articles' : new_articles
+
         })
