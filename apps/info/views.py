@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 from .models import Article, Tag, Category
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 
 class ArticleView(View):
@@ -38,12 +39,23 @@ class CategoryView(View):
     def get(self, request, category_id):
         category = Category.objects.get(id=int(category_id))
         category_articles = category.article_set.all()
-        new_articles = category_articles.order_by('-modified_time')[:10]
+        new_articles = category_articles.order_by('-modified_time')
         category_hot_articles = category_articles.order_by('-views')[0:5]
         category_guide_articles = category_articles.order_by('?')[0:6]
+        category_articles_nums = category_articles.count()
+        # 对新闻进行分页
+        # 尝试获取前台get请求传递过来的page参数
+        # 如果是不合法的配置参数默认返回第一页
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+        # 这里指从category_articles中取10个出来，每页显示10个
+        p = Paginator(new_articles, 10, request=request)
+        category_all_articles = p.page(page)
         return render(request, 'category.html', {
             'category': category,
-            'new_articles': new_articles,
+            'category_all_articles': category_all_articles,
             'category_hot_articles': category_hot_articles,
             'category_guide_articles': category_guide_articles
         })

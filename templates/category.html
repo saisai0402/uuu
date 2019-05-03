@@ -30,7 +30,6 @@
 {% block content %}
 
     <div class="main-container container" id="main-container">
-
         <!-- Content -->
         <div class="row">
 
@@ -39,13 +38,13 @@
                 <h1 class="page-title">{{ category.name }}</h1>
 
                 <div class="row card-row">
-                    {% for new_article in new_articles %}
+                    {% for category_all_article in category_all_articles.object_list %}
                         <div class="col-md-6">
                             <article class="entry card">
                                 <div class="entry__img-holder card__img-holder">
-                                    <a href="{% url 'article:article' new_article.id %}">
+                                    <a href="{% url 'article:article' category_all_article.id %}">
                                         <div class="thumb-container thumb-70">
-                                            <img data-src="{{ MEDIA_URL }}{{ new_article.img }}"
+                                            <img data-src="{{ MEDIA_URL }}{{ category_all_article.img }}"
                                                  src="{% static 'img/empty.png' %}"
                                                  class="entry__img lazyload" alt=""/>
                                         </div>
@@ -58,20 +57,20 @@
                                     <div class="entry__header">
 
                                         <h2 class="entry__title">
-                                            <a href="{% url 'article:article' new_article.id %}">{{ new_article.title }}</a>
+                                            <a href="{% url 'article:article' category_all_article.id %}">{{ category_all_article.title }}</a>
                                         </h2>
                                         <ul class="entry__meta">
                                             <li class="entry__meta-author">
                                                 <span>来自</span>
-                                                <a href="#">{{ new_article.user.nick_name }}</a>
+                                                <a href="#">{{ category_all_article.user.nick_name }}</a>
                                             </li>
                                             <li class="entry__meta-date">
-                                                {{ new_article.modified_time }}
+                                                {{ category_all_article.modified_time }}
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="entry__excerpt">
-                                        <p>{{ new_article.excerpt|truncatechars:43 }}</p>
+                                        <p>{{ category_all_article.excerpt|truncatechars:43 }}</p>
                                     </div>
                                 </div>
                             </article>
@@ -81,10 +80,27 @@
 
                 <!-- Pagination -->
                 <nav class="pagination">
-                    <span class="pagination__page pagination__page--current">1</span>
-                    <a href="#" class="pagination__page">2</a>
-                    <a href="#" class="pagination__page">3</a>
-                    <a href="#" class="pagination__page">4</a>
+                    {% if category_all_articles.has_previous %}
+                        <a href="{{ category_all_articles.previous_page_number.querystring }}" class="pagination__page">
+                            <span class="pagination__page pagination__page--current">上一页</span>
+                        </a>
+                    {% endif %}
+                    {% for page in category_all_articles.pages %}
+                        {% if page %}
+                            {% ifequal page category_all_articles.number %}
+                                <a href="?{{ page.querystring }}" class="pagination__page">{{ page }}</a>
+                            {% else %}
+                                <a href="?{{ page.querystring }}" class="pagination__page">{{ page }}</a>
+                            {% endifequal %}
+                        {% else %}
+                            <a href="?{{ page.querystring }}" class="pagination__page">...</a>
+                        {% endif %}
+                    {% endfor %}
+                    {% if all_courses.has_next %}
+                        <a href="{{ category_all_articles.previous_page_number.querystring }}" class="pagination__page">
+                            <span class="pagination__page pagination__page--current">上一页</span>
+                        </a>
+                    {% endif %}
                     <a href="#" class="pagination__page pagination__icon pagination__page--next"><i
                             class="ui-arrow-right"></i></a>
                 </nav>
