@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('index.urls', namespace="index")),
     path('', include('info.urls', namespace="article")),
     path('', include('info.urls', namespace="category")),
+    path('', include('info.urls', namespace="a_list")),
     path('admin/', xadmin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

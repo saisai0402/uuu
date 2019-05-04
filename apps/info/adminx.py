@@ -5,11 +5,11 @@ from .models import Category, Tag, Tui, Article
 
 class CategoryAdmin(object):
     # 显示的列
-    list_display = ['name']
+    list_display = ['name', 'color']
     # 搜索的字段
-    search_fields = ['name']
+    search_fields = ['name', 'color']
     # 过滤
-    list_filter = ['name']
+    list_filter = ['name', 'color']
 
 
 class TagAdmin(object):

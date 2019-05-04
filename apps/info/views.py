@@ -60,3 +60,14 @@ class CategoryView(View):
             'category_hot_articles': category_hot_articles,
             'category_guide_articles': category_guide_articles,
         })
+
+
+class A_listView(View):
+    '''文章列表'''
+
+    def get(self, request):
+        hot_articles = Article.objects.all().order_by('-views')[0:10]
+
+        return render(request, 'a_list.html', {
+            'hot_articles': hot_articles,
+        })

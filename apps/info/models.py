@@ -6,6 +6,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # 文章分类
 class Category(models.Model):
     name = models.CharField('内容分类', max_length=100)
+    color = models.CharField('分类颜色', max_length=100, default='#666666', blank=False)
 
     class Meta:
         verbose_name = '内容分类'

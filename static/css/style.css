@@ -1765,6 +1765,8 @@ img.mfp-img {
 		background-color: #E65100; }
 	.entry__meta-category--red {
 		background-color: #F44336; }
+    .entry__meta-category--gray {
+		background-color: #666666; }
 
 .entry__meta-rating i {
 	font-size: 16px;
@@ -4887,6 +4889,7 @@ dd {
 	.style-games .entry__title {
 		font-size: 18px; }
 	.style-games .entry__meta-category {
+		border-radius: 5px;
 		font-weight: 700;
 		font-size: 14px; }
 	.style-games .card {
