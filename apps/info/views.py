@@ -67,7 +67,8 @@ class A_listView(View):
 
     def get(self, request):
         hot_articles = Article.objects.all().order_by('-views')[0:10]
-
+        guide_articles = Article.objects.order_by('-modified_time')[0:26]
         return render(request, 'a_list.html', {
             'hot_articles': hot_articles,
+            'guide_articles': guide_articles,
         })

@@ -283,9 +283,13 @@
                             </div>
                         </article>
                     {% endfor %}
-                    <button class="btn btn-lg btn-light btn-wide load-more">
-                        <span>Load More <i class="ui-arrow-down"></i></span>
-                    </button>
+                    <a href="{% url 'a_list:a_list' %}">
+                        <button class="btn btn-lg btn-light btn-wide load-more">
+
+                            <span>查看更多<i class="ui-arrow-down"></i></span>
+
+                        </button>
+                    </a>
 
                 </aside> <!-- end widget reviews -->
 
